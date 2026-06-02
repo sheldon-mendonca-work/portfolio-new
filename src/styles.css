@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@source "../src";
+
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/Geist[wght].woff2") format("woff2");
+}
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/GeistMono[wght].woff2") format("woff2");
+}
+
+:root {
+  --bg: #080808;
+  --surface: #111111;
+  --border: #222222;
+  --border-hover: #2a2a2a;
+  --text: #eeeeee;
+  --muted: #888888;
+  --subtle: #444444;
+  --accent: #ffffff;
+  --mx: 50%;
+  --my: 50%;
+
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+* {
+  border-color: var(--border);
+  box-sizing: border-box;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01", "cv11";
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--mx) var(--my),
+    rgba(255, 255, 255, 0.20),
+    transparent 40%
+  );
+}
+
+a { color: inherit; text-decoration: none; }
+
+::selection { background: #eeeeee; color: #080808; }
+
+button, a, input, [tabindex]:not([tabindex="-1"]) {
+  outline: none;
+}
+button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+  outline: 1.5px solid rgba(255,255,255,0.4);
+  outline-offset: 4px;
+}
+
+.font-mono { font-family: var(--font-mono); }
+
+.container-x {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+@media (max-width: 640px) {
+  .container-x { padding-left: 24px; padding-right: 24px; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+@keyframes caret-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+.caret { animation: caret-blink 1s steps(1) infinite; }
+
+nav {
+  background: rgba(8, 8, 8, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .hero-meta {
+    display: none;
+  }
+  h1.hero-name {
+    font-size: 56px !important;
+  }
+  .experience-row {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  .experience-meta {
+    width: auto !important;
+  }
+}
+
+.mobile-nav-dropdown {
+  padding: 8px 24px 24px;
+  height: auto;
+}
+.mobile-nav-dropdown a {
+  display: block;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--muted);
+}
+.mobile-nav-dropdown a:last-child {
+  border-bottom: none;
+}
