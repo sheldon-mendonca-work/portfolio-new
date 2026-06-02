@@ -16,6 +16,7 @@ const ITEMS: Item[] = [
   { id: "notes", icon: "↓", label: "Notes", kind: "section", target: "notes" },
   { id: "writing", icon: "↓", label: "Writing", kind: "section", target: "writing" },
   { id: "resume", icon: "→", label: "Resume", hint: "/resume", kind: "route", target: "/resume" },
+  { id: "now", icon: "→", label: "Now", hint: "/now", kind: "route", target: "/now" },
   { id: "this-site", icon: "→", label: "This Site", hint: "/this-site", kind: "route", target: "/this-site" },
   { id: "github", icon: "↗", label: "GitHub", kind: "link", target: "https://github.com" },
   { id: "linkedin", icon: "↗", label: "LinkedIn", kind: "link", target: "https://linkedin.com" },

@@ -58,7 +58,7 @@ export function Nav() {
         </button>
       </div>
       {open && (
-        <div className="md:hidden mobile-nav-dropdown" style={{ background: "var(--bg)", borderBottom: "1px solid var(--border)" }}>
+        <div className="md:hidden mobile-dropdown" style={{ background: "var(--bg)", borderBottom: "1px solid var(--border)" }}>
           <div className="container-x flex flex-col">
             {links.map((l) => (
               <button key={l.id} onClick={() => { setOpen(false); setTimeout(() => scrollTo(l.id), 50); }} style={{ textAlign: "left" }}>

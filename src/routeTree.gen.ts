@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ThisSiteRouteImport } from './routes/this-site'
 import { Route as ResumeRouteImport } from './routes/resume'
+import { Route as NowRouteImport } from './routes/now'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WritingIndexRouteImport } from './routes/writing.index'
 import { Route as WritingSlugRouteImport } from './routes/writing.$slug'
@@ -23,6 +24,11 @@ const ThisSiteRoute = ThisSiteRouteImport.update({
 const ResumeRoute = ResumeRouteImport.update({
   id: '/resume',
   path: '/resume',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NowRoute = NowRouteImport.update({
+  id: '/now',
+  path: '/now',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -43,6 +49,7 @@ const WritingSlugRoute = WritingSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/now': typeof NowRoute
   '/resume': typeof ResumeRoute
   '/this-site': typeof ThisSiteRoute
   '/writing/$slug': typeof WritingSlugRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/now': typeof NowRoute
   '/resume': typeof ResumeRoute
   '/this-site': typeof ThisSiteRoute
   '/writing/$slug': typeof WritingSlugRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/now': typeof NowRoute
   '/resume': typeof ResumeRoute
   '/this-site': typeof ThisSiteRoute
   '/writing/$slug': typeof WritingSlugRoute
@@ -65,12 +74,19 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/resume' | '/this-site' | '/writing/$slug' | '/writing/'
+  fullPaths:
+    | '/'
+    | '/now'
+    | '/resume'
+    | '/this-site'
+    | '/writing/$slug'
+    | '/writing/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/resume' | '/this-site' | '/writing/$slug' | '/writing'
+  to: '/' | '/now' | '/resume' | '/this-site' | '/writing/$slug' | '/writing'
   id:
     | '__root__'
     | '/'
+    | '/now'
     | '/resume'
     | '/this-site'
     | '/writing/$slug'
@@ -79,6 +95,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  NowRoute: typeof NowRoute
   ResumeRoute: typeof ResumeRoute
   ThisSiteRoute: typeof ThisSiteRoute
   WritingSlugRoute: typeof WritingSlugRoute
@@ -99,6 +116,13 @@ declare module '@tanstack/react-router' {
       path: '/resume'
       fullPath: '/resume'
       preLoaderRoute: typeof ResumeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/now': {
+      id: '/now'
+      path: '/now'
+      fullPath: '/now'
+      preLoaderRoute: typeof NowRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -127,6 +151,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  NowRoute: NowRoute,
   ResumeRoute: ResumeRoute,
   ThisSiteRoute: ThisSiteRoute,
   WritingSlugRoute: WritingSlugRoute,
