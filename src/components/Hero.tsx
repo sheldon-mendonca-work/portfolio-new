@@ -53,7 +53,7 @@ export function Hero() {
                 textTransform: "uppercase",
               }}
             >
-              Frontend Engineer
+              Software Engineer
             </div>
             <h1
               className="reveal hero-name"
@@ -78,11 +78,11 @@ export function Hero() {
                 maxWidth: 520,
               }}
             >
-              I build frontend systems that stay fast
+              I build systems that stay fast
               <br />
               as products, teams and codebases grow.
             </p>
-            <div className="reveal" style={{ marginTop: 40 }}>
+            <div className="reveal" style={{ marginTop: 40, display: 'flex', alignItems: 'center', gap: 20 }}>
               <a
                 href="#work"
                 onClick={(e) => {
@@ -99,7 +99,7 @@ export function Hero() {
                 to="/resume"
                 style={{
                   fontSize: 15,
-                  color: "var(--muted)",
+                  color: "var(--text)",
                   textDecoration: "none",
                   transition: "color 0.15s",
                 }}
@@ -119,15 +119,15 @@ export function Hero() {
 
           <div className="reveal font-mono hero-meta" style={{ textAlign: "right", fontSize: 13 }}>
             {[
-              { label: "Status", values: ["Available for work"] },
-              { label: "Based in", values: ["India"] },
+              { label: "Currently", values: ["Deepening Backend Systems"] },
+              { label: "Based in", values: ["Bengaluru"] },
               {
                 label: "Focus",
                 values: [
                   "React Architecture",
+                  "SpringBoot",
                   "Performance",
-                  "Accessibility",
-                  "Developer Experience",
+                  "System Design",
                 ],
               },
             ].map((g) => (

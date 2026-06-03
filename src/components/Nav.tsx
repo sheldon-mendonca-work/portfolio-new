@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { useTheme } from "@/hooks/use-theme";
 
 const links = [
   { label: "Work", id: "work" },
@@ -17,7 +16,6 @@ function scrollTo(id: string) {
 
 export function Nav() {
   const [open, setOpen] = useState(false);
-  const { theme } = useTheme();
   useEffect(() => { setOpen(false); }, []);
   
   return (
@@ -34,6 +32,8 @@ export function Nav() {
             src={"/images/Sheldon_Mendonca_Signature.webp"}
             alt="Sheldon Mendonca"
             className="logo-dark"
+            width={400}
+            height={100}
             style={{
               height: 44,
               width: "auto",
@@ -44,6 +44,8 @@ export function Nav() {
             src={"/images/Sheldon_Mendonca_Signature_light_2.webp"}
             className="logo-light"
             alt="Sheldon Mendonca"
+            width={400}
+            height={100}
             style={{
               height: 44,
               width: "auto",

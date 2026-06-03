@@ -16,10 +16,11 @@ export function Contact() {
   return (
     <section id="contact" style={{ paddingTop: 120, paddingBottom: 120 }}>
       <div ref={ref} className="container-x" style={{ textAlign: "center" }}>
-        <h2 className="reveal" style={{ fontSize: "clamp(40px, 7vw, 64px)", fontWeight: 500, letterSpacing: "-0.03em", color: "var(--text)" }}>
-          Let's build something.
+        <h2 className="reveal" style={{ fontSize: "clamp(30px, 6vw, 56px)", fontWeight: 500, letterSpacing: "-0.03em", color: "var(--text)" }}>
+          Always interested in well-engineered systems.
         </h2>
-        <p className="reveal" style={{ marginTop: 24, fontSize: 18, color: "var(--muted)" }}>Open to SDE1 or SDE2 roles in front-end, back-end or full-stack development.</p>
+        <p className="reveal" style={{ marginTop: 24, fontSize: 18, color: "var(--muted)" }}>
+If you're building something interesting, I'd like to hear about it.</p>
         <div className="reveal" style={{ marginTop: 40, display: "flex", alignItems: "center", justifyContent: "center", gap: 16 }}>
           <a
             href={`mailto:${EMAIL}`}

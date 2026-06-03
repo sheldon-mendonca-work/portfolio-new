@@ -75,12 +75,10 @@ export const Route = createRootRouteWithContext<object>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1",
-      },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
 
       {
-        title:
-          "Sheldon Mendonca - Software Engineer | React, Spring Boot, Full Stack",
+        title: "Sheldon Mendonca - Software Engineer | React, Spring Boot, Full Stack",
       },
 
       {
@@ -107,8 +105,7 @@ export const Route = createRootRouteWithContext<object>()({
 
       {
         property: "og:title",
-        content:
-          "Sheldon Mendonca - Software Engineer",
+        content: "Sheldon Mendonca - Software Engineer",
       },
 
       {
@@ -149,8 +146,7 @@ export const Route = createRootRouteWithContext<object>()({
 
       {
         name: "twitter:title",
-        content:
-          "Sheldon Mendonca - Software Engineer",
+        content: "Sheldon Mendonca - Software Engineer",
       },
 
       {
@@ -173,6 +169,18 @@ export const Route = createRootRouteWithContext<object>()({
       {
         rel: "canonical",
         href: "https://yourdomain.com",
+      },
+      {
+        rel: "preload",
+        href: "/images/logo-light.webp",
+        as: "image",
+      },
+      {
+        rel: "preload",
+        href: "/fonts/Geist[wght].woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
       },
     ],
   }),
