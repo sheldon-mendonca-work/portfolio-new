@@ -50,12 +50,12 @@ export const Route = createFileRoute("/")({
 
       {
         property: "og:url",
-        content: "https://yourdomain.com",
+        content: "https://sheldon-mendonca.netlify.app",
       },
 
       {
         property: "og:image",
-        content: "https://yourdomain.com/og-image.png",
+        content: "https://sheldon-mendonca.netlify.app/images/Sheldon_Mendonca_Square.webp",
       },
 
       {

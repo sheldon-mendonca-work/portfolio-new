@@ -80,7 +80,7 @@ export const Route = createRootRouteWithContext<object>()({
       {
         title: "Sheldon Mendonca - Software Engineer | React, Spring Boot, Full Stack",
       },
-
+      
       {
         name: "description",
         content:
@@ -131,12 +131,12 @@ export const Route = createRootRouteWithContext<object>()({
 
       {
         property: "og:url",
-        content: "https://yourdomain.com",
+        content: "https://sheldon-mendonca.netlify.app",
       },
 
       {
         property: "og:image",
-        content: "/images/Sheldon_Mendonca_Favicon.webp",
+        content: "https://sheldon-mendonca.netlify.app/images/Sheldon_Mendonca_Square.webp",
       },
 
       {
@@ -157,7 +157,7 @@ export const Route = createRootRouteWithContext<object>()({
 
       {
         name: "twitter:image",
-        content: "/images/Sheldon_Mendonca_Favicon.webp",
+        content: "https://sheldon-mendonca.netlify.app/images/Sheldon_Mendonca_Square.webp",
       },
     ],
     links: [
@@ -165,14 +165,20 @@ export const Route = createRootRouteWithContext<object>()({
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "icon", type: "image/webp", href: "/images/Sheldon_Mendonca_Favicon_light.webp" },
 
       {
         rel: "canonical",
-        href: "https://yourdomain.com",
+        href: "https://sheldon-mendonca.netlify.app",
       },
       {
         rel: "preload",
-        href: "/images/logo-light.webp",
+        href: "/images/Sheldon_Mendonca_Signature_light_2.webp",
+        as: "image",
+      },
+      {
+        rel: "preload",
+        href: "/images/Sheldon_Mendonca_Signature.webp",
         as: "image",
       },
       {
