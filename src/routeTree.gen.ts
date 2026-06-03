@@ -11,10 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ThisSiteRouteImport } from './routes/this-site'
 import { Route as ResumeRouteImport } from './routes/resume'
+import { Route as OgRouteImport } from './routes/og'
 import { Route as NowRouteImport } from './routes/now'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WritingIndexRouteImport } from './routes/writing.index'
+import { Route as NotesIndexRouteImport } from './routes/notes.index'
 import { Route as WritingSlugRouteImport } from './routes/writing.$slug'
+import { Route as NotesSlugRouteImport } from './routes/notes.$slug'
 
 const ThisSiteRoute = ThisSiteRouteImport.update({
   id: '/this-site',
@@ -24,6 +27,11 @@ const ThisSiteRoute = ThisSiteRouteImport.update({
 const ResumeRoute = ResumeRouteImport.update({
   id: '/resume',
   path: '/resume',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OgRoute = OgRouteImport.update({
+  id: '/og',
+  path: '/og',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NowRoute = NowRouteImport.update({
@@ -41,35 +49,54 @@ const WritingIndexRoute = WritingIndexRouteImport.update({
   path: '/writing/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NotesIndexRoute = NotesIndexRouteImport.update({
+  id: '/notes/',
+  path: '/notes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WritingSlugRoute = WritingSlugRouteImport.update({
   id: '/writing/$slug',
   path: '/writing/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotesSlugRoute = NotesSlugRouteImport.update({
+  id: '/notes/$slug',
+  path: '/notes/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/now': typeof NowRoute
+  '/og': typeof OgRoute
   '/resume': typeof ResumeRoute
   '/this-site': typeof ThisSiteRoute
+  '/notes/$slug': typeof NotesSlugRoute
   '/writing/$slug': typeof WritingSlugRoute
+  '/notes/': typeof NotesIndexRoute
   '/writing/': typeof WritingIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/now': typeof NowRoute
+  '/og': typeof OgRoute
   '/resume': typeof ResumeRoute
   '/this-site': typeof ThisSiteRoute
+  '/notes/$slug': typeof NotesSlugRoute
   '/writing/$slug': typeof WritingSlugRoute
+  '/notes': typeof NotesIndexRoute
   '/writing': typeof WritingIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/now': typeof NowRoute
+  '/og': typeof OgRoute
   '/resume': typeof ResumeRoute
   '/this-site': typeof ThisSiteRoute
+  '/notes/$slug': typeof NotesSlugRoute
   '/writing/$slug': typeof WritingSlugRoute
+  '/notes/': typeof NotesIndexRoute
   '/writing/': typeof WritingIndexRoute
 }
 export interface FileRouteTypes {
@@ -77,28 +104,46 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/now'
+    | '/og'
     | '/resume'
     | '/this-site'
+    | '/notes/$slug'
     | '/writing/$slug'
+    | '/notes/'
     | '/writing/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/now' | '/resume' | '/this-site' | '/writing/$slug' | '/writing'
+  to:
+    | '/'
+    | '/now'
+    | '/og'
+    | '/resume'
+    | '/this-site'
+    | '/notes/$slug'
+    | '/writing/$slug'
+    | '/notes'
+    | '/writing'
   id:
     | '__root__'
     | '/'
     | '/now'
+    | '/og'
     | '/resume'
     | '/this-site'
+    | '/notes/$slug'
     | '/writing/$slug'
+    | '/notes/'
     | '/writing/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   NowRoute: typeof NowRoute
+  OgRoute: typeof OgRoute
   ResumeRoute: typeof ResumeRoute
   ThisSiteRoute: typeof ThisSiteRoute
+  NotesSlugRoute: typeof NotesSlugRoute
   WritingSlugRoute: typeof WritingSlugRoute
+  NotesIndexRoute: typeof NotesIndexRoute
   WritingIndexRoute: typeof WritingIndexRoute
 }
 
@@ -116,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/resume'
       fullPath: '/resume'
       preLoaderRoute: typeof ResumeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/og': {
+      id: '/og'
+      path: '/og'
+      fullPath: '/og'
+      preLoaderRoute: typeof OgRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/now': {
@@ -139,11 +191,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WritingIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/notes/': {
+      id: '/notes/'
+      path: '/notes'
+      fullPath: '/notes/'
+      preLoaderRoute: typeof NotesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/writing/$slug': {
       id: '/writing/$slug'
       path: '/writing/$slug'
       fullPath: '/writing/$slug'
       preLoaderRoute: typeof WritingSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notes/$slug': {
+      id: '/notes/$slug'
+      path: '/notes/$slug'
+      fullPath: '/notes/$slug'
+      preLoaderRoute: typeof NotesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -152,9 +218,12 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   NowRoute: NowRoute,
+  OgRoute: OgRoute,
   ResumeRoute: ResumeRoute,
   ThisSiteRoute: ThisSiteRoute,
+  NotesSlugRoute: NotesSlugRoute,
   WritingSlugRoute: WritingSlugRoute,
+  NotesIndexRoute: NotesIndexRoute,
   WritingIndexRoute: WritingIndexRoute,
 }
 export const routeTree = rootRouteImport

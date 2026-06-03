@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { Experience } from "@/components/Experience";
 import { Principles } from "@/components/Principles";
@@ -11,7 +10,6 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { CommandPalette } from "@/components/CommandPalette";
 import { useLenis } from "@/hooks/use-lenis";
-import { useCursorSpotlight } from "@/hooks/use-cursor-spotlight";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -99,7 +97,6 @@ export const Route = createFileRoute("/")({
 function Index() {
   const [palette, setPalette] = useState(false);
   useLenis();
-  useCursorSpotlight();
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -114,7 +111,6 @@ function Index() {
 
   return (
     <>
-      <Nav />
       <main style={{ position: "relative", zIndex: 1 }}>
         <Hero />
         <Experience />

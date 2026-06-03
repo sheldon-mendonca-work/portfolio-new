@@ -1,12 +1,12 @@
 import { useReveal } from "@/hooks/use-reveal";
 
 const principles = [
-  { title: "Users experience milliseconds, not architectures.", desc: "Performance isn't a technical metric - it's a product experience. Every render cycle, every byte, every blocking resource is felt by a real person." },
-  { title: "The compiler should catch what code review misses.", desc: "TypeScript strict mode isn't overhead - it's documentation that runs. If the type system can enforce a contract, a comment shouldn't have to." },
-  { title: "Component boundaries are API design.", desc: "The props you expose are a public interface. Name them well, keep them minimal and make illegal states unrepresentable." },
-  { title: "Accessibility is a default, not an audit.", desc: "Screen readers, keyboard users and low-vision users aren't edge cases. Semantic HTML and focus management cost nothing when you start with them." },
+  { title: "Users experience milliseconds, not architectures.", desc: "Performance isn't a technical metric — it's a product experience. Every render cycle, every byte, every blocking resource is felt by a real person." },
+  { title: "The compiler should catch what code review misses.", desc: "TypeScript strict mode isn't overhead — it's documentation that runs. If the type system can enforce a contract, a comment shouldn't have to." },
+  { title: "Component boundaries are API design.", desc: "The props you expose are a public interface. Name them well, keep them minimal, and make illegal states unrepresentable." },
+  { title: "Accessibility is a default, not an audit.", desc: "Screen readers, keyboard users, and low-vision users aren't edge cases. Semantic HTML and focus management cost nothing when you start with them." },
   { title: "The fastest code is the code you never ship.", desc: "Every dependency has a maintenance cost and a bundle cost. The best abstraction is often the one you didn't write." },
-  { title: "Slow CI is a team problem.", desc: "A 20-minute test suite isn't a CI problem - it's a productivity tax on every engineer, every day. Build times are worth optimizing like production code." },
+  { title: "Slow CI is a team problem.", desc: "A 20-minute test suite isn't a CI problem — it's a productivity tax on every engineer, every day. Build times are worth optimizing like production code." },
 ];
 
 export function Principles() {

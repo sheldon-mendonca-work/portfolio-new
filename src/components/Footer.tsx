@@ -4,7 +4,7 @@ export function Footer({ onOpenPalette }: Props) {
   return (
     <footer style={{ height: 64, borderTop: "1px solid var(--border)", display: "flex", alignItems: "center" }}>
       <div className="container-x font-mono" style={{ fontSize: 13, color: "var(--subtle)", display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", gap: 16 }}>
-        <span>SC © 2026</span>
+        <span>Sheldon Mendonca © 2026</span>
         <button
           onClick={onOpenPalette}
           aria-label="Open command palette"

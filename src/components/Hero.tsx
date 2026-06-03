@@ -1,6 +1,7 @@
 import { useScramble } from "@/hooks/use-scramble";
 import { useReveal } from "@/hooks/use-reveal";
 import InteractiveGrid from "./InteractiveGrid";
+import { Link } from "@tanstack/react-router";
 
 const DotGrid = () => (
   <svg
@@ -29,13 +30,29 @@ export function Hero() {
   const name = useScramble("Sheldon Mendonca", 1000);
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section style={{ position: "relative", paddingTop: 200, paddingBottom: 120, isolation: "isolate" }}>
-      {/* <DotGrid /> */}
+    <section
+      style={{ position: "relative", paddingTop: 200, paddingBottom: 120, isolation: "isolate" }}
+    >
       <InteractiveGrid />
       <div ref={ref} className="container-x relative" style={{ zIndex: 2 }}>
-        <div className="grid hero-grid" style={{ gridTemplateColumns: "minmax(0,3fr) minmax(0,2fr)", gap: 80, alignItems: "start" }}>
+        <div
+          className="grid hero-grid"
+          style={{
+            gridTemplateColumns: "minmax(0,3fr) minmax(0,2fr)",
+            gap: 80,
+            alignItems: "start",
+          }}
+        >
           <div>
-            <div className="reveal font-mono" style={{ fontSize: 11, color: "var(--subtle)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+            <div
+              className="reveal font-mono"
+              style={{
+                fontSize: 11,
+                color: "var(--subtle)",
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+              }}
+            >
               Frontend Engineer
             </div>
             <h1
@@ -53,9 +70,16 @@ export function Hero() {
             </h1>
             <p
               className="reveal"
-              style={{ marginTop: 40, fontSize: 18, color: "var(--muted)", lineHeight: 1.5, maxWidth: 520 }}
+              style={{
+                marginTop: 40,
+                fontSize: 18,
+                color: "var(--muted)",
+                lineHeight: 1.5,
+                maxWidth: 520,
+              }}
             >
-              I build frontend systems that stay fast<br />
+              I build frontend systems that stay fast
+              <br />
               as products, teams and codebases grow.
             </p>
             <div className="reveal" style={{ marginTop: 40 }}>
@@ -71,6 +95,25 @@ export function Hero() {
               >
                 View Work →
               </a>
+              <Link
+                to="/resume"
+                style={{
+                  fontSize: 15,
+                  color: "var(--muted)",
+                  textDecoration: "none",
+                  transition: "color 0.15s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "var(--text)";
+                  e.currentTarget.style.textDecoration = "underline";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "var(--muted)";
+                  e.currentTarget.style.textDecoration = "none";
+                }}
+              >
+                Resume ↗
+              </Link>
             </div>
           </div>
 
@@ -78,12 +121,39 @@ export function Hero() {
             {[
               { label: "Status", values: ["Available for work"] },
               { label: "Based in", values: ["India"] },
-              { label: "Focus", values: ["React Architecture", "Performance", "Accessibility", "Developer Experience"] },
+              {
+                label: "Focus",
+                values: [
+                  "React Architecture",
+                  "Performance",
+                  "Accessibility",
+                  "Developer Experience",
+                ],
+              },
             ].map((g) => (
               <div key={g.label} style={{ marginBottom: 24 }}>
-                <div style={{ fontSize: 11, color: "var(--subtle)", textTransform: "uppercase", letterSpacing: "0.1em" }}>{g.label}</div>
-                <div style={{ marginTop: 8, color: "var(--muted)", display: "flex", flexDirection: "column", gap: 4 }}>
-                  {g.values.map((v) => <div key={v}>{v}</div>)}
+                <div
+                  style={{
+                    fontSize: 11,
+                    color: "var(--subtle)",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                  }}
+                >
+                  {g.label}
+                </div>
+                <div
+                  style={{
+                    marginTop: 8,
+                    color: "var(--muted)",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 4,
+                  }}
+                >
+                  {g.values.map((v) => (
+                    <div key={v}>{v}</div>
+                  ))}
                 </div>
               </div>
             ))}

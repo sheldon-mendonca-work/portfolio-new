@@ -4,13 +4,16 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useLocation,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { type ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { reportLovableError } from "../lib/lovable-error-reporting";
 import { useCursorSpotlight } from "../hooks/use-cursor-spotlight";
+import { Nav } from "@/components/Nav";
 
 function NotFoundComponent() {
   return (
@@ -37,6 +40,9 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
+  useEffect(() => {
+    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -73,10 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-
-      {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1",
+      { name: "viewport", content: "width=device-width, initial-scale=1",
       },
 
       {
@@ -140,7 +143,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
       {
         property: "og:image",
-        content: "https://yourdomain.com/og-image.png",
+        content: "/images/Sheldon_Mendonca_Favicon.webp",
       },
 
       {
@@ -162,10 +165,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
       {
         name: "twitter:image",
-        content: "https://yourdomain.com/og-image.png",
+        content: "/images/Sheldon_Mendonca_Favicon.webp",
       },
     ],
-
     links: [
       {
         rel: "stylesheet",
@@ -178,17 +180,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
   }),
-
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
 
+const themeScript = `(function(){var s=localStorage.getItem('portfolio-theme');var t=s==='light'||s==='dark'?s:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);})();`;
+
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <HeadContent />
       </head>
       <body>
@@ -201,11 +205,13 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const { pathname } = useLocation();
+  const hideNav = pathname === "/resume";
   useCursorSpotlight();
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      {!hideNav && <Nav />}
       <Outlet />
     </QueryClientProvider>
   );

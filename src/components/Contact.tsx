@@ -1,28 +1,58 @@
+import { useState } from "react";
 import { useReveal } from "@/hooks/use-reveal";
+
+const EMAIL = "sheldonmendoncawork123@gmail.com";
 
 export function Contact() {
   const ref = useReveal<HTMLDivElement>();
+  const [copied, setCopied] = useState(false);
+
+  const copy = async () => {
+    await navigator.clipboard.writeText(EMAIL);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <section id="contact" style={{ paddingTop: 120, paddingBottom: 120 }}>
       <div ref={ref} className="container-x" style={{ textAlign: "center" }}>
         <h2 className="reveal" style={{ fontSize: "clamp(40px, 7vw, 64px)", fontWeight: 500, letterSpacing: "-0.03em", color: "var(--text)" }}>
           Let's build something.
         </h2>
-        <p className="reveal" style={{ marginTop: 24, fontSize: 18, color: "var(--muted)" }}>Open to software engineering roles.</p>
-        <div className="reveal" style={{ marginTop: 40 }}>
+        <p className="reveal" style={{ marginTop: 24, fontSize: 18, color: "var(--muted)" }}>Open to senior and staff roles.</p>
+        <div className="reveal" style={{ marginTop: 40, display: "flex", alignItems: "center", justifyContent: "center", gap: 16 }}>
           <a
-            href="mailto:sheldonmendoncawork123@gmail.com"
-            className="font-mono"
-            style={{ fontSize: 24, color: "var(--text)" }}
+            href={`mailto:${EMAIL}`}
+            className="footer-mail-to"
+            style={{ fontFamily: "var(--font-mono)", color: "var(--text)", textDecoration: "none" }}
             onMouseEnter={(e) => (e.currentTarget.style.textDecoration = "underline")}
             onMouseLeave={(e) => (e.currentTarget.style.textDecoration = "none")}
           >
-            sheldonmendoncawork123@gmail.com
+            {EMAIL}
           </a>
+          <button
+            onClick={copy}
+            aria-label="Copy email"
+            style={{
+              fontSize: 12,
+              fontFamily: "var(--font-mono)",
+              color: "var(--subtle)",
+              background: "none",
+              border: "1px solid var(--border)",
+              borderRadius: 4,
+              padding: "4px 8px",
+              cursor: "pointer",
+              transition: "color 0.15s, border-color 0.15s",
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.borderColor = "var(--border-hover)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = "var(--subtle)"; e.currentTarget.style.borderColor = "var(--border)"; }}
+          >
+            {copied ? "Copied!" : "Copy"}
+          </button>
         </div>
         <div className="reveal font-mono" style={{ marginTop: 40, display: "flex", gap: 32, justifyContent: "center", fontSize: 13, color: "var(--muted)" }}>
           {[
-            { l: "GitHub", h: "https://github.com" },
+            { l: "GitHub", h: "https://github.com/sheldon-mendonca-work" },
             { l: "LinkedIn", h: "https://linkedin.com" },
             { l: "Twitter", h: "https://twitter.com" },
           ].map((x) => (

@@ -21,15 +21,6 @@ const entries = [
       "Contributed internal automation tooling, leading to a transition into software engineering.",
     ],
   },
-  {
-    company: "Stripe",
-    years: "2019 - 2021",
-    role: "Frontend Engineer",
-    bullets: [
-      "Maintained the checkout SDK shipped to thousands of merchants, kept payload under 38kb gzip.",
-      "Authored the team's testing guidelines and migrated 1,200 tests to Vitest.",
-    ],
-  },
 ];
 
 export function Experience() {
@@ -37,19 +28,11 @@ export function Experience() {
   return (
     <section id="work" style={{ paddingTop: 120, paddingBottom: 120 }}>
       <div ref={ref} className="container-x">
-        <div
-          className="reveal font-mono"
-          style={{
-            fontSize: 11,
-            color: "var(--subtle)",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            marginBottom: 64,
-          }}
-        >
-          Work
-        </div>
-        <div>
+        <div className="reveal font-mono" style={{ fontSize: 11, color: "var(--subtle)", letterSpacing: "0.1em", textTransform: "uppercase" }}>Work</div>
+        <h2 className="reveal" style={{ marginTop: 24, fontSize: 40, fontWeight: 500, letterSpacing: "-0.02em", color: "var(--text)" }}>Experience</h2>
+        <p className="reveal" style={{ marginTop: 16, fontSize: 15, color: "var(--muted)" }}>Teams, products, and experiences that shaped how I think and work.</p>
+        <div style={{ marginTop: 64 }}>
+        
           {entries.map((e, i) => (
             <div
               key={e.company}
@@ -64,20 +47,13 @@ export function Experience() {
             >
               <div className="experience-meta">
                 <div style={{ fontSize: 15, color: "var(--muted)" }}>{e.company}</div>
-                <div
-                  className="font-mono"
-                  style={{ fontSize: 13, color: "var(--subtle)", marginTop: 8 }}
-                >
-                  {e.years}
-                </div>
+                <div className="font-mono" style={{ fontSize: 13, color: "var(--subtle)", marginTop: 8 }}>{e.years}</div>
               </div>
               <div>
                 <div style={{ fontSize: 18, color: "var(--text)", fontWeight: 500 }}>{e.role}</div>
                 <ul style={{ marginTop: 16, display: "flex", flexDirection: "column", gap: 8 }}>
                   {e.bullets.map((b) => (
-                    <li key={b} style={{ fontSize: 15, color: "var(--muted)", lineHeight: 1.7 }}>
-                      {b}
-                    </li>
+                    <li key={b} style={{ fontSize: 15, color: "var(--muted)", lineHeight: 1.7 }}>{b}</li>
                   ))}
                 </ul>
               </div>

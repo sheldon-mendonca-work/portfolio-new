@@ -7,14 +7,7 @@ export const Route = createFileRoute("/resume")({
 
 function Resume() {
   return (
-    <div
-      style={{
-        background: "#ffffff",
-        color: "#111",
-        minHeight: "100vh",
-        fontFamily: "-apple-system, system-ui, sans-serif",
-      }}
-    >
+    <div style={{ background: "#ffffff", color: "#111", minHeight: "100vh", fontFamily: "-apple-system, system-ui, sans-serif" }}>
       <style>{`
         @media print {
           .no-print { display: none !important; }
@@ -22,10 +15,7 @@ function Resume() {
           .resume-root { padding: 0 !important; font-size: 12px !important; }
         }
       `}</style>
-      <div
-        className="resume-root"
-        style={{ maxWidth: 800, margin: "0 auto", padding: "64px 40px" }}
-      >
+      <div className="resume-root" style={{ maxWidth: 800, margin: "0 auto", padding: "64px 40px" }}>
         <a
           href="/"
           className="no-print"
@@ -42,22 +32,11 @@ function Resume() {
         >
           ← Back to portfolio
         </a>
-        <div
-          className="no-print"
-          style={{ display: "flex", justifyContent: "flex-end", marginBottom: 24 }}
-        >
-          <button
-            onClick={() => window.print()}
-            style={{
-              padding: "8px 14px",
-              border: "1px solid #111",
-              background: "#fff",
-              fontSize: 13,
-              cursor: "pointer",
-            }}
-          >
+        <div className="no-print" style={{ display: "flex", justifyContent: "flex-end", marginBottom: 24 }}>
+          <a href="/resume/Sheldon_Mendonca_Resume_2026.pdf"
+  download style={{ padding: "8px 14px", border: "1px solid #111", background: "#fff", fontSize: 13, cursor: "pointer" }}>
             Download PDF
-          </button>
+          </a>
         </div>
 
         <header>
@@ -107,56 +86,27 @@ function Resume() {
           ].map((e) => (
             <div key={e.c} style={{ marginTop: 16 }}>
               <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14 }}>
-                <strong>
-                  {e.r} · {e.c}
-                </strong>
+                <strong>{e.r} · {e.c}</strong>
                 <span style={{ color: "#555" }}>{e.y}</span>
               </div>
               <ul style={{ margin: "6px 0 0 18px", padding: 0, fontSize: 14, color: "#333" }}>
-                {e.b.map((x) => (
-                  <li key={x} style={{ marginTop: 2 }}>
-                    {x}
-                  </li>
-                ))}
+                {e.b.map((x) => <li key={x} style={{ marginTop: 2 }}>{x}</li>)}
               </ul>
             </div>
           ))}
         </section>
 
         <section style={{ marginTop: 32 }}>
-          <h2
-            style={{
-              fontSize: 14,
-              textTransform: "uppercase",
-              letterSpacing: "0.1em",
-              borderBottom: "1px solid #111",
-              paddingBottom: 4,
-            }}
-          >
-            Skills
-          </h2>
+          <h2 style={{ fontSize: 14, textTransform: "uppercase", letterSpacing: "0.1em", borderBottom: "1px solid #111", paddingBottom: 4 }}>Skills</h2>
           <p style={{ fontSize: 14, color: "#333", marginTop: 8 }}>
-            Building production web applications with React, Next.js, TypeScript, Spring Boot,
-            PostgreSQL and AWS. Focused on frontend architecture, developer experience,
-            performance, accessibility and scalable system design.
+            React, TypeScript (strict), Next.js, TanStack, Vite, Node, CSS architecture, accessibility (WCAG 2.2), performance (LCP/INP/CLS), design systems, testing (Vitest, Playwright).
           </p>
         </section>
 
         <section style={{ marginTop: 32 }}>
-          <h2
-            style={{
-              fontSize: 14,
-              textTransform: "uppercase",
-              letterSpacing: "0.1em",
-              borderBottom: "1px solid #111",
-              paddingBottom: 4,
-            }}
-          >
-            Education
-          </h2>
+          <h2 style={{ fontSize: 14, textTransform: "uppercase", letterSpacing: "0.1em", borderBottom: "1px solid #111", paddingBottom: 4 }}>Education</h2>
           <div style={{ marginTop: 8, fontSize: 14 }}>
-            <strong>B.Tech, Mechanical Engineering</strong> · Manipal Institute of Technology -{" "}
-            <span style={{ color: "#555" }}>2014 - 2018</span>
+            <strong>B.Tech, Mechanical Engineering</strong> · Manipal Institute Of Technology — <span style={{ color: "#555" }}>2014 — 2018</span>
           </div>
         </section>
       </div>

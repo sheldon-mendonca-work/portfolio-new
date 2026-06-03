@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+
 export const Route = createFileRoute("/now")({
   head: () => ({
     meta: [
@@ -8,6 +9,7 @@ export const Route = createFileRoute("/now")({
   }),
   component: NowPage,
 });
+
 const sections = [
   {
     heading: "Work",
@@ -37,6 +39,7 @@ const sections = [
     ],
   },
 ];
+
 function NowPage() {
   return (
     <main style={{ maxWidth: 680, margin: "0 auto", padding: "120px 24px" }}>
@@ -55,6 +58,7 @@ function NowPage() {
       >
         ← Back to portfolio
       </a>
+
       <div
         className="font-mono"
         style={{
@@ -67,9 +71,11 @@ function NowPage() {
       >
         Now
       </div>
+
       <h1 style={{ fontSize: 40, fontWeight: 500, color: "var(--text)", letterSpacing: "-0.02em" }}>
         What I'm doing now
       </h1>
+
       <p style={{ marginTop: 16, fontSize: 14, color: "var(--muted)" }}>
         Updated June 2026. Inspired by{" "}
         <a
@@ -82,6 +88,7 @@ function NowPage() {
         </a>
         .
       </p>
+
       {sections.map((section) => (
         <div
           key={section.heading}
