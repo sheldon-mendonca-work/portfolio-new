@@ -18,7 +18,7 @@ export function useTheme() {
   const [theme, setTheme] = useState<Theme>("system");
 
   useEffect(() => {
-  const saved = localStorage.getItem("dark");
+  const saved = localStorage.getItem(STORAGE_KEY);
 
   if (saved) {
     setTheme(saved as Theme);

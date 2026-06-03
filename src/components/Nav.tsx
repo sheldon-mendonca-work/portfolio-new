@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { useTheme } from "@/hooks/use-theme";
 
 const links = [
   { label: "Work", id: "work" },
@@ -16,7 +17,9 @@ function scrollTo(id: string) {
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const { theme } = useTheme();
   useEffect(() => { setOpen(false); }, []);
+  
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-40"
@@ -28,10 +31,21 @@ export function Nav() {
       <div className="container-x flex items-center justify-between" style={{ height: "var(--nav-height)" }}>
         <Link to="/" className="font-mono" style={{ fontSize: 15, color: "var(--text)" }}>
           <img
-            src="/images/Sheldon_Mendonca_Signature.webp"
+            src={"/images/Sheldon_Mendonca_Signature.png"}
+            alt="Sheldon Mendonca"
+            className="logo-dark"
+            style={{
+              height: 44,
+              width: "auto",
+              opacity: 0.95,
+            }}
+          />
+          <img
+            src={"/images/Sheldon_Mendonca_Signature_light_2.png"}
+            className="logo-light"
             alt="Sheldon Mendonca"
             style={{
-              height: 55,
+              height: 44,
               width: "auto",
               opacity: 0.95,
             }}
