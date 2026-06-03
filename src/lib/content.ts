@@ -43,7 +43,7 @@ export function getAllNotes(): Note[] {
       const title = firstLine.length > 80 ? firstLine.slice(0, 80).trimEnd() + "…" : firstLine;
       return {
         slug: slugFromPath(path),
-        date: data.date ?? "",
+        date: String(data.date).replace(/^"|"$/g, "") ?? "",
         title,
         body,
       };
@@ -57,14 +57,15 @@ export function getNoteBySlug(slug: string): Note | undefined {
 
 
 export function getAllArticles(): Article[] {
-  return Object.entries(articleFiles)
+  
+  return  Object.entries(articleFiles)
     .map(([path, raw]) => {
       const { data, content } = parseFrontmatter(raw);
       const words = content.trim().split(/\s+/).filter(Boolean).length;
       return {
         slug: slugFromPath(path),
         title: data.title as string,
-        date: data.date as string,
+        date: String(data.date).replace(/^"|"$/g, ""),
         description: data.description as string,
         body: content.trim(),
         readingTime: Math.max(1, Math.round(words / 200)),

@@ -17,7 +17,7 @@ const ITEMS: Item[] = [
   { id: "github", icon: "↗", label: "GitHub", kind: "link", target: "https://github.com/sheldon-mendonca-work" },
   { id: "linkedin", icon: "↗", label: "LinkedIn", kind: "link", target: "https://linkedin.com" },
   { id: "contact", icon: "✉", label: "Contact", kind: "section", target: "contact" },
-  { id: "copy-email", icon: "✉", label: "Copy Email", hint: "clipboard", kind: "copy", value: "siddharth@example.com" },
+  { id: "copy-email", icon: "✉", label: "Copy Email", hint: "clipboard", kind: "copy", value: "sheldonmendoncawork123@gmail.com" },
   { id: "theme-dark", icon: "◐", label: "Dark Mode", hint: "theme", kind: "theme", value: "dark" },
   { id: "theme-light", icon: "○", label: "Light Mode", hint: "theme", kind: "theme", value: "light" },
   { id: "theme-system", icon: "◑", label: "System Mode", hint: "theme", kind: "theme", value: "system" },

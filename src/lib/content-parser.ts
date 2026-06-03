@@ -18,7 +18,11 @@ export function parseFrontmatter(raw: string) {
     if (idx === -1) return;
 
     const key = line.slice(0, idx).trim();
-    const value = line.slice(idx + 1).trim();
+
+    const value = line
+      .slice(idx + 1)
+      .trim()
+      .replace(/^['"]|['"]$/g, "");
 
     data[key] = value;
   });

@@ -19,7 +19,7 @@ export function Contact() {
         <h2 className="reveal" style={{ fontSize: "clamp(40px, 7vw, 64px)", fontWeight: 500, letterSpacing: "-0.03em", color: "var(--text)" }}>
           Let's build something.
         </h2>
-        <p className="reveal" style={{ marginTop: 24, fontSize: 18, color: "var(--muted)" }}>Open to senior and staff roles.</p>
+        <p className="reveal" style={{ marginTop: 24, fontSize: 18, color: "var(--muted)" }}>Open to SDE1 or SDE2 roles in front-end, back-end or full-stack development.</p>
         <div className="reveal" style={{ marginTop: 40, display: "flex", alignItems: "center", justifyContent: "center", gap: 16 }}>
           <a
             href={`mailto:${EMAIL}`}

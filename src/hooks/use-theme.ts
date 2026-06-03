@@ -15,15 +15,13 @@ function applyTheme(theme: Theme) {
 }
 
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>("system");
-
-  useEffect(() => {
-  const saved = localStorage.getItem(STORAGE_KEY);
-
-  if (saved) {
-    setTheme(saved as Theme);
+  const [theme, setTheme] = useState<Theme>(() => {
+  if (typeof window === "undefined") {
+    return "system";
   }
-}, []);
+
+  return (localStorage.getItem(STORAGE_KEY) as Theme) ?? "system";
+});
 useEffect(() => {
     applyTheme(theme);
     localStorage.setItem(STORAGE_KEY, theme);

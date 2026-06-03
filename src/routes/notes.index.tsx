@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { getAllNotes, type Note } from "@/lib/content";
 export const Route = createFileRoute("/notes/")({
-  head: () => ({ meta: [{ title: "Notes — Siddharth Chen" }] }),
+  head: () => ({ meta: [{ title: "Notes - Sheldon Mendonca" }] }),
   loader: (): { notes: Note[] } => ({ notes: getAllNotes() }),
   component: NotesIndex,
 });

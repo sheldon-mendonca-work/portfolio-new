@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/now")({
   head: () => ({
     meta: [
-      { title: "Now — Siddharth Chen" },
+      { title: "Now - Sheldon Mendonca" },
       { name: "description", content: "What I'm doing now." },
     ],
   }),
@@ -14,14 +14,14 @@ const sections = [
   {
     heading: "Work",
     items: [
-      "Actively looking for senior and staff frontend roles",
+      "Open to SDE1 or SDE2 roles in front-end, back-end or full-stack development.",
       "Open to product companies, startups Series A and above, and select remote opportunities",
     ],
   },
   {
     heading: "Building",
     items: [
-      "This portfolio — treating it as a real frontend project with architecture decisions, performance budgets, and accessibility standards",
+      "This portfolio - treating it as a real frontend project with architecture decisions, performance budgets, and accessibility standards",
     ],
   },
   {
@@ -34,8 +34,8 @@ const sections = [
   {
     heading: "Reading",
     items: [
-      "A Philosophy of Software Design — John Ousterhout",
-      "Staff Engineer — Will Larson",
+      "A Philosophy of Software Design - John Ousterhout",
+      "Staff Engineer - Will Larson",
     ],
   },
 ];

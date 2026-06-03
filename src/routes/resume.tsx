@@ -106,7 +106,7 @@ function Resume() {
         <section style={{ marginTop: 32 }}>
           <h2 style={{ fontSize: 14, textTransform: "uppercase", letterSpacing: "0.1em", borderBottom: "1px solid #111", paddingBottom: 4 }}>Education</h2>
           <div style={{ marginTop: 8, fontSize: 14 }}>
-            <strong>B.Tech, Mechanical Engineering</strong> · Manipal Institute Of Technology — <span style={{ color: "#555" }}>2014 — 2018</span>
+            <strong>B.Tech, Mechanical Engineering</strong> · Manipal Institute Of Technology - <span style={{ color: "#555" }}>2014 - 2018</span>
           </div>
         </section>
       </div>
