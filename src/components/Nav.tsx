@@ -31,7 +31,7 @@ export function Nav() {
       <div className="container-x flex items-center justify-between" style={{ height: "var(--nav-height)" }}>
         <Link to="/" className="font-mono" style={{ fontSize: 15, color: "var(--text)" }}>
           <img
-            src={"/images/Sheldon_Mendonca_Signature.png"}
+            src={"/images/Sheldon_Mendonca_Signature.webp"}
             alt="Sheldon Mendonca"
             className="logo-dark"
             style={{
@@ -41,7 +41,7 @@ export function Nav() {
             }}
           />
           <img
-            src={"/images/Sheldon_Mendonca_Signature_light_2.png"}
+            src={"/images/Sheldon_Mendonca_Signature_light_2.webp"}
             className="logo-light"
             alt="Sheldon Mendonca"
             style={{
