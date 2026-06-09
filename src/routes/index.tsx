@@ -10,6 +10,7 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { CommandPalette } from "@/components/CommandPalette";
 import { useLenis } from "@/hooks/use-lenis";
+import { Projects } from "#/components/Projects";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -114,6 +115,7 @@ function Index() {
       <main style={{ position: "relative", zIndex: 1 }}>
         <Hero />
         <Experience />
+        <Projects />
         <Principles />
         <Notes />
         <Writing />

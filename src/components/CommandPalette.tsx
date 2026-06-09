@@ -8,6 +8,7 @@ type Item =
 
 const ITEMS: Item[] = [
   { id: "work", icon: "↓", label: "Work", kind: "section", target: "work" },
+  { id: "projects", icon: "↓", label: "Projects", kind: "section", target: "projects" },
   { id: "principles", icon: "↓", label: "Principles", kind: "section", target: "principles" },
   { id: "notes", icon: "↓", label: "Notes", kind: "section", target: "notes" },
   { id: "writing", icon: "↓", label: "Writing", kind: "section", target: "writing" },

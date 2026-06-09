@@ -4,6 +4,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
   { label: "Work", id: "work" },
+  { label: "Projects", id: "projects" },
   { label: "Principles", id: "principles" },
   { label: "Notes", id: "notes" },
   { label: "Writing", id: "writing" },
