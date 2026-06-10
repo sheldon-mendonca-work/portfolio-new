@@ -82,7 +82,7 @@ function ThisSite() {
       <section style={{ marginTop: 64 }}>
         <Label>Source</Label>
         <a href="https://github.com/sheldon-mendonca-work" target="_blank" rel="noreferrer" className="font-mono" style={{ fontSize: 13, color: "var(--text)", textDecoration: "underline", textUnderlineOffset: 4 }}>
-          github.com/sc/portfolio
+          https://github.com/sheldon-mendonca-work
         </a>
       </section>
     </main>

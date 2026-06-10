@@ -54,8 +54,8 @@ If you're building something interesting, I'd like to hear about it.</p>
         <div className="reveal font-mono" style={{ marginTop: 40, display: "flex", gap: 32, justifyContent: "center", fontSize: 13, color: "var(--muted)" }}>
           {[
             { l: "GitHub", h: "https://github.com/sheldon-mendonca-work" },
-            { l: "LinkedIn", h: "https://linkedin.com" },
-            { l: "Twitter", h: "https://twitter.com" },
+            { l: "LinkedIn", h: "https://linkedin.com/in/sheldon-mendonca" },
+            // { l: "Twitter", h: "https://twitter.com" },
           ].map((x) => (
             <a key={x.l} href={x.h} target="_blank" rel="noreferrer"
                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}

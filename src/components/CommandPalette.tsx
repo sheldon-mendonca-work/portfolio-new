@@ -16,7 +16,7 @@ const ITEMS: Item[] = [
   { id: "now", icon: "→", label: "Now", hint: "/now", kind: "route", target: "/now" },
   { id: "this-site", icon: "→", label: "This Site", hint: "/this-site", kind: "route", target: "/this-site" },
   { id: "github", icon: "↗", label: "GitHub", kind: "link", target: "https://github.com/sheldon-mendonca-work" },
-  { id: "linkedin", icon: "↗", label: "LinkedIn", kind: "link", target: "https://linkedin.com" },
+  { id: "linkedin", icon: "↗", label: "LinkedIn", kind: "link", target: "https://linkedin.com/in/sheldon-mendonca" },
   { id: "contact", icon: "✉", label: "Contact", kind: "section", target: "contact" },
   { id: "copy-email", icon: "✉", label: "Copy Email", hint: "clipboard", kind: "copy", value: "sheldonmendoncawork123@gmail.com" },
   { id: "theme-dark", icon: "◐", label: "Dark Mode", hint: "theme", kind: "theme", value: "dark" },

@@ -51,7 +51,7 @@ export function Projects() {
         </div>
         <div className="reveal" style={{ marginTop: 24 }}>
           <a 
-            href="https://github.com"
+            href="https://github.com/sheldon-mendonca-work"
             target="_blank"
             rel="noopener noreferrer"
             
